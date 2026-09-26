@@ -1,29 +1,34 @@
 # EmlaLock for Home Assistant
 
-A Home Assistant custom integration for EmlaLock, including a bundled Lovelace card for displaying the current EmlaLock session and available actions.
+A Home Assistant custom integration for **EmlaLock**, including a bundled Lovelace card for displaying the current EmlaLock session and available actions.
 
-## Features
+> **Important:** EmlaLock remains responsible for account authentication, permissions, and server-side rules. This integration does not bypass those controls.
 
-- HACS-compatible Home Assistant custom integration
-- EmlaLock session status and timing information
-- Automatic discovery of EmlaLock entities
-- Bundled **EmlaLock Card** (`custom:emlalock-card`)
-- Session active/inactive status
-- Start and end dates
-- Elapsed and remaining time
-- Minimum and maximum duration
-- Requirement links
-- Add/subtract duration controls
-- Automatic detection of available holder-key actions
-- Automatic card registration after installation
+## ✨ Features
 
-## Requirements
+- 🏠 HACS-compatible Home Assistant custom integration
+- ⚙️ Home Assistant Config Flow
+- 🔐 EmlaLock account/API connection
+- ☁️ Cloud polling
+- 📡 Automatic discovery of EmlaLock entities
+- 🎨 Bundled **EmlaLock Card**: `custom:emlalock-card`
+- 🟢 Session active/inactive status
+- 📅 Start and end dates
+- ⏱️ Elapsed and remaining time
+- ⏳ Minimum and maximum duration
+- 🔗 Requirement links
+- ➕ Add duration
+- ➖ Subtract duration
+- 🔑 Automatic detection of available holder-key actions
+- 🔄 Automatic card registration after installation
+
+## 📋 Requirements
 
 - Home Assistant with support for custom integrations
-- A configured EmlaLock account/API connection
-- HACS for the recommended installation method
+- An EmlaLock account/API connection
+- [HACS](https://hacs.xyz/) for the recommended installation method
 
-## Installation
+## 📦 Installation
 
 ### HACS
 
@@ -32,28 +37,33 @@ A Home Assistant custom integration for EmlaLock, including a bundled Lovelace c
 3. Install the integration.
 4. Restart Home Assistant.
 5. Go to **Settings → Devices & services → Add Integration**.
-6. Search for **EmlaLock** and complete the configuration.
+6. Search for **EmlaLock** and complete setup.
 
-If EmlaLock is not listed in HACS yet, add this repository as a custom repository under **HACS → Integrations**:
+If the repository is not listed in HACS, add this repository as a custom repository:
 
-`https://github.com/jonny5509/EmlaLock-ha`
+`https://github.com/jonny5509/EmlaLock`
 
 ### Manual installation
 
-1. Download or clone this repository.
-2. Copy the `custom_components/emlalock` directory into your Home Assistant `config/custom_components/` directory.
+1. Clone or download this repository.
+2. Copy `custom_components/emlalock` into:
+   `/config/custom_components/emlalock`
 3. Restart Home Assistant.
 4. Add **EmlaLock** from **Settings → Devices & services**.
 
-## EmlaLock Card
+## 🎨 EmlaLock Card
 
-The repository includes a bundled Lovelace card available as:
+The repository includes a bundled Lovelace card:
 
 `custom:emlalock-card`
 
-The card is packaged under `dist/emlalock-card.js` and is included with the integration so the integration and card can be installed together.
+The card is packaged in:
 
-The card displays:
+```text
+dist/emlalock-card.js
+```
+
+The card can display:
 
 - Current EmlaLock session information
 - Active/inactive status
@@ -66,38 +76,48 @@ The card displays:
 
 The card automatically discovers the EmlaLock entities created by the integration, so entity IDs do not need to be entered manually.
 
-## Dashboard setup
+## 🖥️ Dashboard setup
 
-The card is automatically installed, loaded, and registered with Home Assistant. No manual JavaScript resource or YAML resource entry is required.
+The integration automatically installs, loads, and registers the bundled card.
 
-After installation and restart, add the card to a dashboard through the Home Assistant dashboard UI:
+To add it to a dashboard:
 
 1. Open the dashboard you want to edit.
 2. Select **Edit dashboard**.
 3. Choose **Add card**.
-4. Search for **EmlaLock Card** or select it from the available custom cards.
-5. Save the dashboard.
+4. Search for **EmlaLock Card**.
+5. Add the card and save the dashboard.
 
-You do not need to add entries to `configuration.yaml`, manually register a Lovelace resource, or provide EmlaLock entity IDs.
+### Home Assistant limitation
 
-### Important Home Assistant limitation
+A custom integration cannot silently modify an existing user's dashboard and insert a card into it.
 
-A custom integration cannot silently modify an existing user's dashboard and insert a card into it. EmlaLock can automatically install, load, and register the card, but adding the card to an existing dashboard remains a dashboard UI action.
+EmlaLock can automatically install, load, and register the card, but adding the card to an existing dashboard remains a dashboard UI action.
 
-## Updates
+No manual `configuration.yaml` resource entry is required by this integration.
+
+## 🔄 Updates
+
+### HACS
 
 After a HACS update:
 
-1. Restart Home Assistant so the updated integration and bundled card are loaded.
+1. Restart Home Assistant.
 2. Reload the dashboard if the updated card is not immediately visible.
 
-## Troubleshooting
+### Manual
+
+Replace the installed integration/card files with the updated repository contents and restart Home Assistant.
+
+If the card does not appear after an update, refresh the browser/dashboard.
+
+## 🧪 Troubleshooting
 
 ### EmlaLock is not available
 
 Check that:
 
-- The integration is installed under `custom_components/emlalock/`.
+- `custom_components/emlalock/` exists.
 - Home Assistant has been restarted after installation.
 - Your EmlaLock account/API configuration is valid.
 - Home Assistant logs do not report an integration setup error.
@@ -106,27 +126,44 @@ Check that:
 
 Check that:
 
-- The integration has been installed successfully.
+- The integration is installed successfully.
 - Home Assistant has been restarted after installation or update.
-- The bundled card file is present in the installed integration package.
-- The browser has refreshed the dashboard after the update.
+- The bundled card file is present.
+- The browser/dashboard has been refreshed.
 
 ### The card cannot find entities
 
-The card discovers entities created by the EmlaLock integration automatically. Confirm that the integration is loaded and that the expected EmlaLock entities are available in **Settings → Devices & services**.
+The card discovers entities created by the EmlaLock integration automatically.
 
-## Development
+Confirm that:
 
-The integration source is under `custom_components/emlalock/`.
+1. The integration is loaded.
+2. EmlaLock entities are visible under **Settings → Devices & services**.
+3. There are no setup errors in the Home Assistant logs.
 
-The bundled card source/build files are maintained in the repository alongside the integration. When developing changes, verify both the Home Assistant integration and the Lovelace card after installation.
+## 🧑‍💻 Development
 
-## Repository
+The integration source is under:
 
-Source code and issue tracking are hosted on GitHub:
+```text
+custom_components/emlalock/
+```
 
-`https://github.com/jonny5509/EmlaLock-ha`
+The bundled Lovelace card is maintained alongside the integration:
 
-## License
+```text
+dist/
+www/
+```
 
-See the repository for the current project license.
+When developing changes, test both the Home Assistant integration and the Lovelace card after installation.
+
+## 📁 Repository
+
+Source code and issue tracking:
+
+https://github.com/jonny5509/EmlaLock
+
+## 📄 License
+
+See [LICENSE](LICENSE) or the repository for the current project license.
