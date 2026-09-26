@@ -1,0 +1,323 @@
+add_time:
+  name: Add time
+  description: Add a duration to the active EmlaLock session.
+  fields:
+    entry_id:
+      name: Entry ID
+      description: The EmlaLock config entry ID.
+      required: true
+      example: "0123456789abcdef"
+      selector:
+        text:
+    value:
+      name: Value
+      description: Duration in seconds or an EmlaLock short-term value such as H1, D1, or W1.
+      required: true
+      example: 3600
+      selector:
+        text:
+    text:
+      name: Text
+      description: Optional text associated with the duration change.
+      required: false
+      example: "Home Assistant"
+      selector:
+        text:
+
+subtract_time:
+  name: Subtract time
+  description: Subtract a duration from the active EmlaLock session.
+  fields:
+    entry_id:
+      name: Entry ID
+      description: The EmlaLock config entry ID.
+      required: true
+      example: "0123456789abcdef"
+      selector:
+        text:
+    value:
+      name: Value
+      description: Duration in seconds or an EmlaLock short-term value such as H1, D1, or W1.
+      required: true
+      example: 3600
+      selector:
+        text:
+    text:
+      name: Text
+      description: Optional text associated with the duration change.
+      required: false
+      example: "Home Assistant"
+      selector:
+        text:
+
+add_maximum:
+  name: Add maximum
+  description: Increase the maximum duration of the active EmlaLock session.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    value:
+      name: Value
+      description: Duration in seconds or an EmlaLock short-term value.
+      required: true
+      selector:
+        text:
+
+subtract_maximum:
+  name: Subtract maximum
+  description: Decrease the maximum duration of the active EmlaLock session.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    value:
+      name: Value
+      description: Duration in seconds or an EmlaLock short-term value.
+      required: true
+      selector:
+        text:
+
+add_minimum:
+  name: Add minimum
+  description: Increase the minimum duration of the active EmlaLock session.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    value:
+      name: Value
+      description: Duration in seconds or an EmlaLock short-term value.
+      required: true
+      selector:
+        text:
+
+subtract_minimum:
+  name: Subtract minimum
+  description: Decrease the minimum duration of the active EmlaLock session.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    value:
+      name: Value
+      description: Duration in seconds or an EmlaLock short-term value.
+      required: true
+      selector:
+        text:
+
+add_requirements:
+  name: Add requirements
+  description: Increase the requirement-link count of the active EmlaLock session.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    value:
+      name: Value
+      description: Number of requirement links to add.
+      required: true
+      selector:
+        number:
+          min: 0
+          mode: box
+
+subtract_requirements:
+  name: Subtract requirements
+  description: Decrease the requirement-link count of the active EmlaLock session.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    value:
+      name: Value
+      description: Number of requirement links to subtract.
+      required: true
+      selector:
+        number:
+          min: 0
+          mode: box
+
+add_time_random:
+  name: Add random time
+  description: Add a random duration between two values to the active EmlaLock session.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    from_value:
+      name: From value
+      description: Minimum duration in seconds or an EmlaLock short-term value.
+      required: true
+      selector:
+        text:
+    to_value:
+      name: To value
+      description: Maximum duration in seconds or an EmlaLock short-term value.
+      required: true
+      selector:
+        text:
+
+subtract_time_random:
+  name: Subtract random time
+  description: Subtract a random duration between two values from the active EmlaLock session.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    from_value:
+      name: From value
+      description: Minimum duration in seconds or an EmlaLock short-term value.
+      required: true
+      selector:
+        text:
+    to_value:
+      name: To value
+      description: Maximum duration in seconds or an EmlaLock short-term value.
+      required: true
+      selector:
+        text:
+
+add_maximum_random:
+  name: Add random maximum
+  description: Increase the maximum duration by a random amount.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    from_value:
+      name: From value
+      required: true
+      selector:
+        text:
+    to_value:
+      name: To value
+      required: true
+      selector:
+        text:
+
+subtract_maximum_random:
+  name: Subtract random maximum
+  description: Decrease the maximum duration by a random amount.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    from_value:
+      name: From value
+      required: true
+      selector:
+        text:
+    to_value:
+      name: To value
+      required: true
+      selector:
+        text:
+
+add_minimum_random:
+  name: Add random minimum
+  description: Increase the minimum duration by a random amount.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    from_value:
+      name: From value
+      required: true
+      selector:
+        text:
+    to_value:
+      name: To value
+      required: true
+      selector:
+        text:
+
+subtract_minimum_random:
+  name: Subtract random minimum
+  description: Decrease the minimum duration by a random amount.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    from_value:
+      name: From value
+      required: true
+      selector:
+        text:
+    to_value:
+      name: To value
+      required: true
+      selector:
+        text:
+
+add_requirements_random:
+  name: Add random requirements
+  description: Increase the requirement-link count by a random amount.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    from_value:
+      name: From value
+      required: true
+      selector:
+        number:
+          min: 0
+          mode: box
+    to_value:
+      name: To value
+      required: true
+      selector:
+        number:
+          min: 0
+          mode: box
+
+subtract_requirements_random:
+  name: Subtract random requirements
+  description: Decrease the requirement-link count by a random amount.
+  fields:
+    entry_id:
+      name: Entry ID
+      required: true
+      selector:
+        text:
+    from_value:
+      name: From value
+      required: true
+      selector:
+        number:
+          min: 0
+          mode: box
+    to_value:
+      name: To value
+      required: true
+      selector:
+        number:
+          min: 0
+          mode: box
